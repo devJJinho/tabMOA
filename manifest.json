@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "name": "My extension",
+  "permissions": [
+    "tabs","activeTab", "http://*/*", "https://*/*"
+  ],
+  "background":{
+    "script":["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
