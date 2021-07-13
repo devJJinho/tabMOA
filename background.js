@@ -1,8 +1,21 @@
-async function getCurrentTab() {
-    let queryOptions = { active: true, currentWindow: true };
-    let [tab] = await chrome.tabs.query(queryOptions);
-    alert(tab);
-    return tab;
-  }
+setInterval(openPicker,10000)
+openPicker();
+function openPicker(){
+    try{
+    const directoryHandle = await window.showDirectoryPicker();
+    alert(directoryHandle);
+    }
+    catch{
+        alert(error.name,error.message);
+    }
+}
 
-  getCurrentTab();
+self.addEventListener('fetch', (event) => {
+    try{
+        const directoryHandle = await window.showDirectoryPicker();
+        alert(directoryHandle);
+        }
+        catch{
+            alert(error.name,error.message);
+        }
+  });

@@ -1,14 +1,40 @@
+
 {
   "version": "1.0.0",
   "manifest_version": 2,
   "name": "My extension",
-  "permissions": [
-    "tabs","activeTab", "http://*/*", "https://*/*"
-  ],
   "background":{
-    "script":["background.js"]
+    "service_worker":"background.js"
   },
+  "permissions":[
+    "tabs","activeTab", "http://*/*", "https://*/*","downloads"
+    //,"fileSystemProvider","fileSystem","fileBrowserHandler"
+  ],
+  
   "browser_action": {
     "default_popup": "popup.html"
   }
+  // "file_system_provider_capabilities": {
+  //   "source": "file"
+  // }
+
 }
+
+// {
+// "name": "MyApp",
+//   "version": "1.0",
+//   "manifest_version": 2,
+//   "app": {
+//     "background": {
+//       "scripts": [
+//         "main.js"
+//       ]
+//     }
+//   },
+//   // "icons": {
+//   //   "128": "favicon.ico"
+//   // },
+//   "permissions": [
+//     "fileSystem","tabs","activeTab"
+//   ]
+// }

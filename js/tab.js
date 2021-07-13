@@ -1,6 +1,6 @@
 const h1Title=document.querySelector("h1");
 async function getCurrentTab() {
-    let queryOptions = { active: false, currentWindow: true};
+    let queryOptions = {currentWindow: true};
 
     const getOpenTab=function(){
       return new Promise((resolve)=>{
@@ -9,8 +9,10 @@ async function getCurrentTab() {
     }
     const fetchResult=await getOpenTab();
     let extract=[];
+    let cnt=1;
     fetchResult.forEach((item)=>{
-      extract.push({"title":item.title,"url":item.url});
+      extract.push({"id":cnt,"title":item.title,"url":item.url});
+      cnt=cnt+1;
     })
 
     return extract;
