@@ -2,7 +2,9 @@ const h1Title=document.querySelector("h1");
 const tabsDiv=document.querySelector("#tabsDiv");
 const tabsUl=document.querySelector("#tabsUl");
 const btn=document.querySelector("#save");
+const btnSave=document.querySelector("#load");
 const nameInput=document.querySelector("#file-name input");
+
 import {getCurrentTab} from "/js/tab.js"
 
 const handleTab=function (){
@@ -70,6 +72,33 @@ function deleteTab(event){
   deleteObject.remove();
 }
 
+// function processFile(file){
+//   var reader=new FileReader();
+//   reader.readAsText(file,"UTF-8");
+//   reader.onload=(item)=>{
+//   console.log(item.target.result);
+//   }
+// }
+
+btnSave.addEventListener("click", async()=>{
+  var popupWidth = 200;
+  var popupHeight = 300;
+  var popupX = (window.screen.width / 2) - (popupWidth / 2);
+  var popupY= (window.screen.height / 2) - (popupHeight / 2);
+  // var input=document.createElement("input");
+  // input.type="file";
+  // input.accept="text/plain";
+  // input.style="align:left";
+  const popupWindow=window.open('filePicker.html', 'Please Choose a file', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+  //popupWindow.focus();
+  // input.click();
+  popupWindow.focus();
+  window.close();
+  // input.onchange=(event)=>{
+  //   processFile(event.target.files[0]);
+  // }
+})
+
 btn.addEventListener("click", async () => {
   try {
     const tabsObj=handleTab.getArray();
@@ -87,7 +116,7 @@ btn.addEventListener("click", async () => {
       console.log(uniqueName);
     }
     const tabLen=tabsObj.length;
-    const downFileName=`[${tabLen}]${uniqueName}`;
+    const downFileName=`[${tabLen}]${uniqueName}.txt`;
 
     chrome.downloads.download({
       url:objURL,
