@@ -2,9 +2,8 @@ const h1Title=document.querySelector("h1");
 const tabsDiv=document.querySelector("#tabsDiv");
 const tabsUl=document.querySelector("#tabsUl");
 const btn=document.querySelector("#save");
-const btnSave=document.querySelector("#load");
+const btnLoad=document.querySelector("#load");
 const nameInput=document.querySelector("#file-name input");
-//const defaultImg=require("/img/default.png");
 import {getCurrentTab} from "/js/tab.js"
 
 const handleTab=function (){
@@ -43,12 +42,12 @@ async function getFavicon(item){
 //ajax로 파비콘 받아와서 적용하기 비동기 구현 필요
 function paintTabs(row){
   const listItem=document.createElement("li");
-  const span1=document.createElement("span");
-  const span2=document.createElement("span");
+  const span=document.createElement("span");
+  const faviconSpan=document.createElement("span");
   const img=document.createElement("img");
   const btn=document.createElement("button");
-  span1.innerText=row.title;
-  img.onerror=(evnet)=>{
+  span.innerText=row.title;
+  img.onerror=(event)=>{
     event.target.src="img/default.png";
   };
   img.src=`https://www.google.com/s2/favicons?sz=24&domain=${row.url}`;
@@ -56,10 +55,10 @@ function paintTabs(row){
   btn.innerText="❌";
   btn.addEventListener("click",deleteTab);
   listItem.id=row.id;
-  span2.appendChild(img);
+  faviconSpan.appendChild(img);
   listItem.appendChild(btn);
-  listItem.appendChild(span2);
-  listItem.appendChild(span1);
+  listItem.appendChild(faviconSpan);
+  listItem.appendChild(span);
   tabsUl.appendChild(listItem);
 }
 
@@ -78,15 +77,29 @@ function deleteTab(event){
   deleteObject.remove();
 }
 
-btnSave.addEventListener("click", async()=>{
-  var popupWidth = 200;
-  var popupHeight = 300;
-  var popupX = (window.screen.width / 2) - (popupWidth / 2);
-  var popupY= (window.screen.height / 2) - (popupHeight / 2);
-  const popupWindow=window.open('filePicker.html', 'Please Choose a file', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-  popupWindow.focus();
+btnLoad.addEventListener("click", async()=>{
+  const input=document.createElement("input");
+  input.type="file";
+  input.accept="text/plain";
+  input.onchange=(event)=>{
+    const file=event.target.files[0];
+    var reader=new FileReader();
+    reader.readAsText(file,"UTF-8");
+    reader.onload=(item)=>{
+      openPages(item.target.result);
+    }              
+  }
+  input.click();
+  });
+
+function openPages(file){
+  const urlArray=[];
+  JSON.parse(file).forEach((item)=>{
+      urlArray.push(item.url);
+  });
+  chrome.windows.create({"focused":true,url:urlArray})
   window.close();
-})
+}
 
 btn.addEventListener("click", async () => {
   try {
