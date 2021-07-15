@@ -4,13 +4,13 @@
   "manifest_version": 2,
   "name": "My extension",
   "background":{
-    "service_worker":"background.js"
+    //"service_worker":"background.js"
   },
   "permissions":[
-    "tabs","activeTab", "http://*/*", "https://*/*","downloads"
+    "tabs","activeTab", "http://*/*", "https://*/*","downloads", "chrome://favicon/"
     //,"fileSystemProvider","fileSystem","fileBrowserHandler"
   ],
-  
+  "content_security_policy": "img-src chrome://favicon;",
   "browser_action": {
     "default_popup": "popup.html"
   }

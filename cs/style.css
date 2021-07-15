@@ -6,7 +6,7 @@ ul{
     list-style: none;
     padding-left:0px;
     line-height:3em;
-    vertical-align: middle;
+    align-items: center;
 }
 
 img{
@@ -19,9 +19,17 @@ span{
 
 html{
     width:500px;
+    background-color:#3d4043;
 }
 
 .textInput{
     width:400px;
-    align
+}
+
+body{
+    color:whitesmoke;
+}
+
+.backGround{
+    
 }

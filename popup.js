@@ -39,7 +39,6 @@ async function init(){
 async function getFavicon(item){
   item.url;
 }
-//ajax로 파비콘 받아와서 적용하기 비동기 구현 필요
 function paintTabs(row){
   const listItem=document.createElement("li");
   const span=document.createElement("span");
@@ -50,7 +49,7 @@ function paintTabs(row){
   img.onerror=(event)=>{
     event.target.src="img/default.png";
   };
-  img.src=`https://www.google.com/s2/favicons?sz=24&domain=${row.url}`;
+  img.src=`chrome://favicon/size/24/${row.url}`;
   img.alt="";
   btn.innerText="❌";
   btn.addEventListener("click",deleteTab);
