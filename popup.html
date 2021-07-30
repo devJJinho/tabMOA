@@ -9,14 +9,12 @@
 </head>
 <body>
     <form id="file-name">
-        <input type="text" value="" placeholder="파일 이름을 입력해주세요. 기본값: 날짜" class="textInput"/>
+        <input id="fileInput" type="text" value="" placeholder="파일 이름을 입력해주세요. 기본값: 날짜"/>
+        <button id="save">Save</button>
+        <button id="load">Load</button>
     </form>
     <div id="tabsDiv">
         <ul id="tabsUl"></ul>
-    </div>
-    <div>
-        <button id="save">Save</button>
-        <button id="load">Load</button>
     </div>
     <script type="module" src="popup.js"></script>
 </body>

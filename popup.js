@@ -1,9 +1,10 @@
-const h1Title=document.querySelector("h1");
-const tabsDiv=document.querySelector("#tabsDiv");
 const tabsUl=document.querySelector("#tabsUl");
-const btn=document.querySelector("#save");
+const btnSave=document.querySelector("#save");
 const btnLoad=document.querySelector("#load");
 const nameInput=document.querySelector("#file-name input");
+const MOUSE_ACTION="btnMouseover";
+const PLACEHOLDER="파일 이름을 입력해주세요. 기본값: 날짜";
+
 import {getCurrentTab} from "/js/tab.js"
 
 const handleTab=function (){
@@ -34,28 +35,49 @@ async function init(){
   const tabArray=await getCurrentTab();
   handleTab.setArray(tabArray);
   tabArray.forEach((item)=>paintTabs(item));
+  btnSave.addEventListener('mouseover',()=>{
+    btnSave.classList.add(MOUSE_ACTION);
+  })
+  btnSave.addEventListener('mouseout',()=>{
+    btnSave.classList.remove(MOUSE_ACTION);
+  })
+  btnLoad.addEventListener('mouseover',()=>{
+    btnLoad.classList.add(MOUSE_ACTION);
+  })
+  btnLoad.addEventListener('mouseout',()=>{
+    btnLoad.classList.remove(MOUSE_ACTION);
+  })
+  nameInput.addEventListener('focus',()=>{
+    nameInput.classList.add("active");
+    nameInput.removeAttribute('placeholder');
+  })
+  nameInput.addEventListener('blur',()=>{
+    nameInput.classList.remove("active");
+    nameInput.placeholder=PLACEHOLDER;
+  })
 }
 
-async function getFavicon(item){
-  item.url;
-}
 function paintTabs(row){
   const listItem=document.createElement("li");
+  listItem.id="itemLi";
   const span=document.createElement("span");
+  span.id="listSpan";
   const faviconSpan=document.createElement("span");
   const img=document.createElement("img");
-  const btn=document.createElement("button");
-  span.innerText=row.title;
+  const btnSave=document.createElement("button");
+  btnSave.id="deleteBtn";
+  span.innerText=row.title.substr(0,60);
   img.onerror=(event)=>{
     event.target.src="img/default.png";
   };
-  img.src=`chrome://favicon/size/24/${row.url}`;
+  const url=new URL(row.url);
+  img.src=`chrome://favicon/size/24/${url.origin}`;
   img.alt="";
-  btn.innerText="❌";
-  btn.addEventListener("click",deleteTab);
+  btnSave.innerText="❌";
+  btnSave.addEventListener("click",deleteTab);
   listItem.id=row.id;
   faviconSpan.appendChild(img);
-  listItem.appendChild(btn);
+  listItem.appendChild(btnSave);
   listItem.appendChild(faviconSpan);
   listItem.appendChild(span);
   tabsUl.appendChild(listItem);
@@ -80,11 +102,14 @@ btnLoad.addEventListener("click", async()=>{
   const input=document.createElement("input");
   input.type="file";
   input.accept="text/plain";
+  console.log("event");
   input.onchange=(event)=>{
     const file=event.target.files[0];
     var reader=new FileReader();
     reader.readAsText(file,"UTF-8");
+    console.log(reader);//
     reader.onload=(item)=>{
+      console.log(item.target.result);//
       openPages(item.target.result);
     }              
   }
@@ -92,15 +117,17 @@ btnLoad.addEventListener("click", async()=>{
   });
 
 function openPages(file){
+  console.log(file);//
   const urlArray=[];
   JSON.parse(file).forEach((item)=>{
       urlArray.push(item.url);
   });
+  console.log(urlArray);//
   chrome.windows.create({"focused":true,url:urlArray})
   window.close();
 }
 
-btn.addEventListener("click", async () => {
+btnSave.addEventListener("click", async () => {
   try {
     const tabsObj=handleTab.getArray();
     const tabsString=JSON.stringify(tabsObj);

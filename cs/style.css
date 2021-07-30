@@ -1,20 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 .hidden{
     display: none; 
 }
 
+html{
+    font-family: 'Gowun Dodum', sans-serif;
+}
 ul{
     list-style: none;
     padding-left:0px;
     line-height:3em;
-    align-items: center;
+    height:30em;
+    overflow-y: scroll;
+}
+
+li{    
+    display: flex;
 }
 
 img{
     vertical-align: middle;
+    padding-right: 15px;
 }
 
 span{
+    background-color: transparent;
     vertical-align: middle;
+    overflow: hidden;
+}
+
+input#fileInput{
+    width:350px;
+    border-radius: 5px;
+    text-align:center;
+    border:0;
+    outline:0;
+    align-self: center;
+    height:22px;
 }
 
 html{
@@ -22,14 +45,44 @@ html{
     background-color:#3d4043;
 }
 
-.textInput{
-    width:400px;
-}
-
 body{
+    font-family: 'Gowun Dodum', sans-serif;
     color:whitesmoke;
+    display:flex;
+    flex-direction: column;
 }
-
+form{
+    align-self: center;
+    padding-top:15px;
+}
 .backGround{
     
+}
+
+button#deleteBtn{
+    border:0;
+    outline:0;
+    background-color: transparent;
+    padding-right:15px;
+}
+button#save{
+    border-radius: 7px;
+    border:5px;
+    outline:0;
+    height:22px;
+}
+button#load{
+    border-radius: 7px;
+    border:5px;
+    outline:0;
+    height:22px;
+}
+
+.btnMouseover{
+    background-color: orange;
+    color:white;
+}
+
+.active{
+    background-color: rgb(241, 221, 166);
 }
