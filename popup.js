@@ -55,6 +55,52 @@ async function init(){
     nameInput.classList.remove("active");
     nameInput.placeholder=PLACEHOLDER;
   })
+  btnLoad.addEventListener("click", async()=>{
+    const input=document.createElement("input");
+    input.type="file";
+    input.accept="text/plain";
+    console.log("event");
+    input.onchange=(event)=>{
+      const file=event.target.files[0];
+      var reader=new FileReader();
+      reader.readAsText(file,"UTF-8");
+      console.log(reader);//
+      reader.onload=(item)=>{
+        console.log(item.target.result);//
+        openPages(item.target.result);
+      }              
+    }
+    input.click();
+  });
+
+  btnSave.addEventListener("click", async () => {
+    try {
+      const tabsObj=handleTab.getArray();
+      const tabsString=JSON.stringify(tabsObj);
+      var blob = new Blob([tabsString], { type: 'text/plain' });
+      const objURL = window.URL.createObjectURL(blob);
+  
+      let uniqueName;
+      if(nameInput.value!=""){
+        uniqueName=nameInput.value;
+        nameInput.value="";
+      }
+      else{
+        uniqueName=makeFileName();
+        console.log(uniqueName);
+      }
+      const tabLen=tabsObj.length;
+      const downFileName=`[${tabLen}]${uniqueName}.txt`;
+  
+      chrome.downloads.download({
+        url:objURL,
+        filename:downFileName
+      })
+   } catch (error) {
+     alert(error.name, error.message);
+    }
+  });
+
 }
 
 function paintTabs(row){
@@ -66,7 +112,7 @@ function paintTabs(row){
   const img=document.createElement("img");
   const btnSave=document.createElement("button");
   btnSave.id="deleteBtn";
-  span.innerText=row.title.substr(0,60);
+  span.innerText=row.title.substr(0,50);
   img.onerror=(event)=>{
     event.target.src="img/default.png";
   };
@@ -98,24 +144,6 @@ function deleteTab(event){
   deleteObject.remove();
 }
 
-btnLoad.addEventListener("click", async()=>{
-  const input=document.createElement("input");
-  input.type="file";
-  input.accept="text/plain";
-  console.log("event");
-  input.onchange=(event)=>{
-    const file=event.target.files[0];
-    var reader=new FileReader();
-    reader.readAsText(file,"UTF-8");
-    console.log(reader);//
-    reader.onload=(item)=>{
-      console.log(item.target.result);//
-      openPages(item.target.result);
-    }              
-  }
-  input.click();
-  });
-
 function openPages(file){
   console.log(file);//
   const urlArray=[];
@@ -126,33 +154,5 @@ function openPages(file){
   chrome.windows.create({"focused":true,url:urlArray})
   window.close();
 }
-
-btnSave.addEventListener("click", async () => {
-  try {
-    const tabsObj=handleTab.getArray();
-    const tabsString=JSON.stringify(tabsObj);
-    var blob = new Blob([tabsString], { type: 'text/plain' });
-    const objURL = window.URL.createObjectURL(blob);
-
-    let uniqueName;
-    if(nameInput.value!=""){
-      uniqueName=nameInput.value;
-      nameInput.value="";
-    }
-    else{
-      uniqueName=makeFileName();
-      console.log(uniqueName);
-    }
-    const tabLen=tabsObj.length;
-    const downFileName=`[${tabLen}]${uniqueName}.txt`;
-
-    chrome.downloads.download({
-      url:objURL,
-      filename:downFileName
-    })
- } catch (error) {
-   alert(error.name, error.message);
-  }
-});
 
 init();
