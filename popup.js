@@ -107,13 +107,13 @@ async function init(){
 function paintTabs(row){
   const listItem=document.createElement("li");
   listItem.id="itemLi";
-  const span=document.createElement("span");
-  span.id="listSpan";
-  const faviconSpan=document.createElement("span");
+  const titleDiv=document.createElement("div");
+  titleDiv.id="titleDiv";
+  const faviconSpan=document.createElement("titleDiv");
   const img=document.createElement("img");
   const btnSave=document.createElement("button");
   btnSave.id="deleteBtn";
-  span.innerText=row.title.substr(0,50);
+  titleDiv.textContent=row.title;
   img.onerror=(event)=>{
     event.target.src="img/default.png";
   };
@@ -126,7 +126,7 @@ function paintTabs(row){
   faviconSpan.appendChild(img);
   listItem.appendChild(btnSave);
   listItem.appendChild(faviconSpan);
-  listItem.appendChild(span);
+  listItem.appendChild(titleDiv);
   tabsUl.appendChild(listItem);
 }
 

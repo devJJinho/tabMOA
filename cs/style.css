@@ -27,7 +27,6 @@ img{
 span{
     background-color: transparent;
     vertical-align: middle;
-    overflow: hidden;
 }
 
 input#fileInput{
@@ -98,4 +97,12 @@ div#topDiv{
 div#tabsDiv{
     display:flex;
     flex-direction: column;
+    width:500px;
+}
+
+div#titleDiv{
+    width:400px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
 }
