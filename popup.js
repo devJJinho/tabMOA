@@ -5,7 +5,8 @@ const nameInput=document.querySelector("#file-name input");
 const MOUSE_ACTION="btnMouseover";
 const PLACEHOLDER="파일 이름을 입력해주세요. 기본값: 날짜";
 
-import {getCurrentTab} from "/js/tab.js"
+import {getCurrentTab} from "/js/tab.js";
+import './cs/style.css';
 
 const handleTab=function (){
   let tabs=[];
