@@ -1,1 +1,159 @@
-(()=>{"use strict";var e={937:(e,n,t)=>{t.d(n,{Z:()=>i});var r=t(645),o=t.n(r)()((function(e){return e[1]}));o.push([e.id,"@import url(https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap);"]),o.push([e.id,".hidden{\n    display: none; \n}\n\nhtml{\n    font-family: 'Gowun Dodum', sans-serif;\n}\nul{\n    list-style: none;\n    padding-left:0px;\n    line-height:3em;\n    height:30em;\n    overflow-y: scroll;\n}\n\nli{    \n    display: flex;\n}\n\nimg{\n    vertical-align: middle;\n    padding-right: 15px;\n}\n\nspan{\n    background-color: transparent;\n    vertical-align: middle;\n}\n\ninput#fileInput{\n    width:350px;\n    border-radius: 5px;\n    text-align:center;\n    border:0;\n    outline:0;\n    align-self: center;\n    height:22px;\n}\n\nhtml{\n    width:500px;\n    background-color:#3d4043;\n}\n\nbody{\n    font-family: 'Gowun Dodum', sans-serif;\n    color:whitesmoke;\n}\nform{\n    align-self: center;\n}\n.backGround{\n    \n}\n\nbutton#deleteBtn{\n    border:0;\n    outline:0;\n    background-color: transparent;\n    padding-right:15px;\n}\nbutton#save{\n    border-radius: 7px;\n    border:5px;\n    outline:0;\n    height:22px;\n    margin-left:7px;\n}\nbutton#load{\n    border-radius: 7px;\n    border:5px;\n    outline:0;\n    height:22px;\n    margin-left:7px;\n}\n\n.btnMouseover{\n    background-color: orange;\n    color:white;\n}\n\n.active{\n    background-color: rgb(241, 221, 166);\n}\n\ndiv#topDiv{\n    align-self: center;\n    display: flex;\n    flex-direction: row;\n    vertical-align: middle;\n    padding-top:15px;\n    justify-content: center;\n}\n\ndiv#tabsDiv{\n    display:flex;\n    flex-direction: column;\n    width:500px;\n}\n\ndiv#titleDiv{\n    width:400px;\n    text-overflow:ellipsis;\n    overflow:hidden;\n    white-space: nowrap;\n}",""]);const i=o},645:e=>{e.exports=function(e){var n=[];return n.toString=function(){return this.map((function(n){var t=e(n);return n[2]?"@media ".concat(n[2]," {").concat(t,"}"):t})).join("")},n.i=function(e,t,r){"string"==typeof e&&(e=[[null,e,""]]);var o={};if(r)for(var i=0;i<this.length;i++){var a=this[i][0];null!=a&&(o[a]=!0)}for(var l=0;l<e.length;l++){var c=[].concat(e[l]);r&&o[c[0]]||(t&&(c[2]?c[2]="".concat(t," and ").concat(c[2]):c[2]=t),n.push(c))}},n}},379:e=>{var n=[];function t(e){for(var t=-1,r=0;r<n.length;r++)if(n[r].identifier===e){t=r;break}return t}function r(e,r){for(var i={},a=[],l=0;l<e.length;l++){var c=e[l],s=r.base?c[0]+r.base:c[0],d=i[s]||0,u="".concat(s," ").concat(d);i[s]=d+1;var p=t(u),f={css:c[1],media:c[2],sourceMap:c[3]};-1!==p?(n[p].references++,n[p].updater(f)):n.push({identifier:u,updater:o(f,r),references:1}),a.push(u)}return a}function o(e,n){var t=n.domAPI(n);return t.update(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap)return;t.update(e=n)}else t.remove()}}e.exports=function(e,o){var i=r(e=e||[],o=o||{});return function(e){e=e||[];for(var a=0;a<i.length;a++){var l=t(i[a]);n[l].references--}for(var c=r(e,o),s=0;s<i.length;s++){var d=t(i[s]);0===n[d].references&&(n[d].updater(),n.splice(d,1))}i=c}}},569:e=>{var n={};e.exports=function(e,t){var r=function(e){if(void 0===n[e]){var t=document.querySelector(e);if(window.HTMLIFrameElement&&t instanceof window.HTMLIFrameElement)try{t=t.contentDocument.head}catch(e){t=null}n[e]=t}return n[e]}(e);if(!r)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");r.appendChild(t)}},216:e=>{e.exports=function(e){var n=document.createElement("style");return e.setAttributes(n,e.attributes),e.insert(n),n}},565:(e,n,t)=>{e.exports=function(e){var n=t.nc;n&&e.setAttribute("nonce",n)}},795:e=>{e.exports=function(e){var n=e.insertStyleElement(e);return{update:function(t){!function(e,n,t){var r=t.css,o=t.media,i=t.sourceMap;o?e.setAttribute("media",o):e.removeAttribute("media"),i&&"undefined"!=typeof btoa&&(r+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(i))))," */")),n.styleTagTransform(r,e)}(n,e,t)},remove:function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(n)}}}},589:e=>{e.exports=function(e,n){if(n.styleSheet)n.styleSheet.cssText=e;else{for(;n.firstChild;)n.removeChild(n.firstChild);n.appendChild(document.createTextNode(e))}}}},n={};function t(r){var o=n[r];if(void 0!==o)return o.exports;var i=n[r]={id:r,exports:{}};return e[r](i,i.exports,t),i.exports}t.n=e=>{var n=e&&e.__esModule?()=>e.default:()=>e;return t.d(n,{a:n}),n},t.d=(e,n)=>{for(var r in n)t.o(n,r)&&!t.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:n[r]})},t.o=(e,n)=>Object.prototype.hasOwnProperty.call(e,n),(()=>{document.querySelector("h1");var e=t(379),n=t.n(e),r=t(795),o=t.n(r),i=t(569),a=t.n(i),l=t(565),c=t.n(l),s=t(216),d=t.n(s),u=t(589),p=t.n(u),f=t(937),m={};m.styleTagTransform=p(),m.setAttributes=c(),m.insert=a().bind(null,"head"),m.domAPI=o(),m.insertStyleElement=d(),n()(f.Z,m),f.Z&&f.Z.locals&&f.Z.locals;const v=document.querySelector("#tabsUl"),h=document.querySelector("#save"),g=document.querySelector("#load"),y=document.querySelector("#file-name input"),b="btnMouseover",x=function(){let e=[];return{setArray:function(n){e=n},addElement:function(n){e.push(n)},getArray:function(){let n=[];return e.forEach((e=>{n.push({url:e.url})})),n},delElement:function(n){e=e.filter((e=>n!=e.id))}}}();function w(e){const n=e.target.parentNode;console.log(e.target.parentNode.id),x.delElement(n.id),n.remove()}!async function(){const e=await async function(){let e={currentWindow:!0};const n=await new Promise((n=>{chrome.tabs.query(e,n)}));let t=[],r=1;return n.forEach((e=>{t.push({id:r,title:e.title,url:e.url}),r+=1})),t}();x.setArray(e),e.forEach((e=>function(e){const n=document.createElement("li");n.id="itemLi";const t=document.createElement("div");t.id="titleDiv";const r=document.createElement("titleDiv"),o=document.createElement("img"),i=document.createElement("button");i.id="deleteBtn",t.textContent=e.title,o.onerror=e=>{e.target.src="img/default.png"};const a=new URL(e.url);o.src=`chrome://favicon/size/24/${a.origin}`,o.alt="",i.innerText="❌",i.addEventListener("click",w),n.id=e.id,r.appendChild(o),n.appendChild(i),n.appendChild(r),n.appendChild(t),v.appendChild(n)}(e))),h.addEventListener("mouseover",(()=>{h.classList.add(b)})),h.addEventListener("mouseout",(()=>{h.classList.remove(b)})),g.addEventListener("mouseover",(()=>{g.classList.add(b)})),g.addEventListener("mouseout",(()=>{g.classList.remove(b)})),y.addEventListener("focus",(()=>{y.classList.add("active"),y.removeAttribute("placeholder")})),y.addEventListener("blur",(()=>{y.classList.remove("active"),y.placeholder="파일 이름을 입력해주세요. 기본값: 날짜"})),g.addEventListener("click",(async()=>{const e=document.createElement("input");e.type="file",e.accept="text/plain",console.log("event"),e.onchange=e=>{const n=e.target.files[0];var t=new FileReader;t.readAsText(n,"UTF-8"),console.log(t),t.onload=e=>{console.log(e.target.result),function(e){console.log(e);const n=[];JSON.parse(e).forEach((e=>{n.push(e.url)})),console.log(n),chrome.windows.create({focused:!0,url:n}),window.close()}(e.target.result)}},e.click()})),h.addEventListener("click",(async()=>{try{const n=x.getArray(),t=JSON.stringify(n);var e=new Blob([t],{type:"text/plain"});const r=window.URL.createObjectURL(e);let o;""!=y.value?(o=y.value,y.value=""):(o=function(){const e=new Date,n=e.getFullYear();return`${e.getMonth()}_${e.getDate()}_${n}`}(),console.log(o));const i=`[${n.length}]${o}.txt`;chrome.downloads.download({url:r,filename:i})}catch(e){alert(e.name,e.message)}}))}()})()})();
+const tabsUl=document.querySelector("#tabsUl");
+const btnSave=document.querySelector("#save");
+const btnLoad=document.querySelector("#load");
+const nameInput=document.querySelector("#file-name input");
+const MOUSE_ACTION="btnMouseover";
+const PLACEHOLDER="파일 이름을 입력해주세요. 기본값: 날짜";
+
+import {getCurrentTab} from "/js/tab.js";
+import './cs/style.css';
+
+const handleTab=function (){
+  let tabs=[];
+  return {
+      setArray:function(array){
+          tabs=array;
+      },
+      addElement:function(element){
+          tabs.push(element);
+      },
+      getArray:function(){
+          let rtArray=[];
+          tabs.forEach((item)=>{
+            rtArray.push({"url":item.url});
+          })
+          return rtArray;
+      },
+      delElement:function(id){
+          tabs=tabs.filter((item)=>{
+            return id!=item.id;
+          })
+      }
+  }
+}();
+
+async function init(){
+  const tabArray=await getCurrentTab();
+  handleTab.setArray(tabArray);
+  tabArray.forEach((item)=>paintTabs(item));
+  btnSave.addEventListener('mouseover',()=>{
+    btnSave.classList.add(MOUSE_ACTION);
+  })
+  btnSave.addEventListener('mouseout',()=>{
+    btnSave.classList.remove(MOUSE_ACTION);
+  })
+  btnLoad.addEventListener('mouseover',()=>{
+    btnLoad.classList.add(MOUSE_ACTION);
+  })
+  btnLoad.addEventListener('mouseout',()=>{
+    btnLoad.classList.remove(MOUSE_ACTION);
+  })
+  nameInput.addEventListener('focus',()=>{
+    nameInput.classList.add("active");
+    nameInput.removeAttribute('placeholder');
+  })
+  nameInput.addEventListener('blur',()=>{
+    nameInput.classList.remove("active");
+    nameInput.placeholder=PLACEHOLDER;
+  })
+  btnLoad.addEventListener("click", async()=>{
+    const input=document.createElement("input");
+    input.type="file";
+    input.accept="text/plain";
+    console.log("event");
+    input.onchange=(event)=>{
+      const file=event.target.files[0];
+      var reader=new FileReader();
+      reader.readAsText(file,"UTF-8");
+      console.log(reader);//
+      reader.onload=(item)=>{
+        console.log(item.target.result);//
+        openPages(item.target.result);
+      }              
+    }
+    input.click();
+  });
+
+  btnSave.addEventListener("click", async () => {
+    try {
+      const tabsObj=handleTab.getArray();
+      const tabsString=JSON.stringify(tabsObj);
+      var blob = new Blob([tabsString], { type: 'text/plain' });
+      const objURL = window.URL.createObjectURL(blob);
+  
+      let uniqueName;
+      if(nameInput.value!=""){
+        uniqueName=nameInput.value;
+        nameInput.value="";
+      }
+      else{
+        uniqueName=makeFileName();
+        console.log(uniqueName);
+      }
+      const tabLen=tabsObj.length;
+      const downFileName=`[${tabLen}]${uniqueName}.txt`;
+  
+      chrome.downloads.download({
+        url:objURL,
+        filename:downFileName
+      })
+   } catch (error) {
+     alert(error.name, error.message);
+    }
+  });
+
+}
+
+function paintTabs(row){
+  const listItem=document.createElement("li");
+  listItem.id="itemLi";
+  const titleDiv=document.createElement("div");
+  titleDiv.id="titleDiv";
+  const faviconSpan=document.createElement("titleDiv");
+  const img=document.createElement("img");
+  const btnSave=document.createElement("button");
+  btnSave.id="deleteBtn";
+  titleDiv.textContent=row.title;
+  img.onerror=(event)=>{
+    event.target.src="img/default.png";
+  };
+  const url=new URL(row.url);
+  img.src=`chrome://favicon/size/24/${url.origin}`;
+  img.alt="";
+  btnSave.innerText="❌";
+  btnSave.addEventListener("click",deleteTab);
+  listItem.id=row.id;
+  faviconSpan.appendChild(img);
+  listItem.appendChild(btnSave);
+  listItem.appendChild(faviconSpan);
+  listItem.appendChild(titleDiv);
+  tabsUl.appendChild(listItem);
+}
+
+function makeFileName(){
+  const date=new Date();
+  const year=date.getFullYear();
+  const month=date.getMonth();
+  const day=date.getDate();
+  return `${month}_${day}_${year}`;
+}
+
+function deleteTab(event){
+  const deleteObject=event.target.parentNode;
+  console.log(event.target.parentNode.id);
+  handleTab.delElement(deleteObject.id);
+  deleteObject.remove();
+}
+
+function openPages(file){
+  console.log(file);//
+  const urlArray=[];
+  JSON.parse(file).forEach((item)=>{
+      urlArray.push(item.url);
+  });
+  console.log(urlArray);//
+  chrome.windows.create({"focused":true,url:urlArray})
+  window.close();
+}
+
+init();
