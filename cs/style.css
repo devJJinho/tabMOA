@@ -48,12 +48,9 @@ html{
 body{
     font-family: 'Gowun Dodum', sans-serif;
     color:whitesmoke;
-    display:flex;
-    flex-direction: column;
 }
 form{
     align-self: center;
-    padding-top:15px;
 }
 .backGround{
     
@@ -70,12 +67,14 @@ button#save{
     border:5px;
     outline:0;
     height:22px;
+    margin-left:7px;
 }
 button#load{
     border-radius: 7px;
     border:5px;
     outline:0;
     height:22px;
+    margin-left:7px;
 }
 
 .btnMouseover{
@@ -85,4 +84,18 @@ button#load{
 
 .active{
     background-color: rgb(241, 221, 166);
+}
+
+div#topDiv{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    padding-top:15px;
+    justify-content: center;
+}
+
+div#tabsDiv{
+    display:flex;
+    flex-direction: column;
 }
