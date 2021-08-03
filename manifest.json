@@ -8,7 +8,6 @@
   "permissions":[
     "tabs","activeTab", "http://*/*", "https://*/*","downloads", "chrome://favicon/"
   ],
-  //"content_security_policy": "img-src chrome://favicon;",
   "browser_action": {
     "default_popup": "popup.html"
   },
