@@ -2,6 +2,7 @@ const tabsUl=document.querySelector("#tabsUl");
 const btnSave=document.querySelector("#save");
 const btnLoad=document.querySelector("#load");
 const nameInput=document.querySelector("#file-name input");
+const form=document.querySelector("#file-name");
 const MOUSE_ACTION="btnMouseover";
 const PLACEHOLDER="파일 이름을 입력해주세요. 기본값: 날짜";
 
@@ -52,6 +53,13 @@ async function init(){
     nameInput.classList.add("active");
     nameInput.removeAttribute('placeholder');
   })
+  nameInput.onkeypress=(event)=>{
+    if(event.keyCode==13){
+      btnSave.click();
+    }
+    console.log("enterpress");
+  };
+  form.onsubmit=()=>{return false};
   nameInput.addEventListener('blur',()=>{
     nameInput.classList.remove("active");
     nameInput.placeholder=PLACEHOLDER;
